@@ -1,37 +1,157 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Room Reviewing View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="RoomReviewingViewController" customModule="RoomPlaner" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="U0K-SW-4ec">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            <arscnView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BrB-h1-WRS" customClass="RoomReviewingARView" customModule="RoomPlaner" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </arscnView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3Qg-IM-apQ">
+                                <rect key="frame" x="16" y="75" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="sx5-rs-gp4"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain">
+                                    <imageReference key="image" image="arrow.down.app" catalog="system" symbolScale="large"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <segue destination="zxx-4L-PQG" kind="popoverPresentation" popoverAnchorView="3Qg-IM-apQ" id="JAQ-qg-Egr">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-5Q-6Ax">
+                                <rect key="frame" x="38" y="97" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="MTo-5Q-6Ax" firstAttribute="height" secondItem="3Qg-IM-apQ" secondAttribute="height" multiplier="0.3125" id="5S2-u9-dtg"/>
+                            <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="3Qg-IM-apQ" secondAttribute="trailing" symbolic="YES" id="EIb-0W-QWI"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
-                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="fQZ-KI-GVf" secondAttribute="bottom" id="VpT-BR-CcM"/>
+                            <constraint firstItem="MTo-5Q-6Ax" firstAttribute="centerY" secondItem="3Qg-IM-apQ" secondAttribute="centerY" id="MCm-bz-cVj"/>
+                            <constraint firstItem="3Qg-IM-apQ" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="N02-mr-aKl"/>
+                            <constraint firstItem="MTo-5Q-6Ax" firstAttribute="width" secondItem="3Qg-IM-apQ" secondAttribute="width" multiplier="0.3125" id="OGm-Hg-q7T"/>
+                            <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
+                            <constraint firstItem="MTo-5Q-6Ax" firstAttribute="centerX" secondItem="3Qg-IM-apQ" secondAttribute="centerX" id="Wlb-1H-BJu"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
+                            <constraint firstItem="3Qg-IM-apQ" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="16" id="b0k-Bl-RlH"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                     </view>
                     <connections>
-                        <outlet property="sceneView" destination="BrB-h1-WRS" id="5nT-qQ-ynl"/>
+                        <outlet property="openObjectsListButton" destination="3Qg-IM-apQ" id="CGk-zJ-0uh"/>
+                        <outlet property="sceneView" destination="BrB-h1-WRS" id="zMg-fq-51s"/>
+                        <outlet property="spinner" destination="MTo-5Q-6Ax" id="jMZ-Eh-UYv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="48" y="4"/>
+        </scene>
+        <!--Room Object Selection View Controller-->
+        <scene sceneID="92e-m1-DMM">
+            <objects>
+                <viewController id="zxx-4L-PQG" customClass="RoomObjectSelectionViewController" customModule="RoomPlaner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iQ4-zm-sZj">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="783"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="fgM-t2-Z6f">
+                                <rect key="frame" x="0.0" y="64" width="393" height="719"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ppK-oW-xLK">
+                                    <size key="itemSize" width="128" height="160"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="roomObject" id="qOS-49-HY3" customClass="RoomObjectCollectionViewCell" customModule="RoomPlaner" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="148.33333333333334"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Nkw-6d-8vx">
+                                            <rect key="frame" x="0.0" y="0.0" width="127.99999999999997" height="148.33333333333334"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="ObQ-4s-zWZ">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="148.33333333333334"/>
+                                                    <subviews>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alarm.waves.left.and.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Obd-0S-XjR">
+                                                            <rect key="frame" x="0.0" y="0.0" width="128" height="127"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="Obd-0S-XjR" secondAttribute="height" multiplier="1:1" id="3Kz-st-LSq"/>
+                                                                <constraint firstAttribute="width" constant="128" id="8tD-LO-kcj"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Object Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3nD-pb-nkn">
+                                                            <rect key="frame" x="0.0" y="127.99999999999999" width="128" height="20.333333333333329"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="ObQ-4s-zWZ" secondAttribute="trailing" id="2th-N3-V9P"/>
+                                                <constraint firstAttribute="bottom" secondItem="ObQ-4s-zWZ" secondAttribute="bottom" id="MHH-Ot-SsC"/>
+                                                <constraint firstItem="ObQ-4s-zWZ" firstAttribute="leading" secondItem="Nkw-6d-8vx" secondAttribute="leading" id="h5h-qF-atb"/>
+                                                <constraint firstItem="ObQ-4s-zWZ" firstAttribute="top" secondItem="Nkw-6d-8vx" secondAttribute="top" id="iZl-TB-6rI"/>
+                                            </constraints>
+                                        </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="imageView" destination="Obd-0S-XjR" id="t5e-1q-Pat"/>
+                                            <outlet property="name" destination="3nD-pb-nkn" id="Lmk-NQ-yI2"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="zxx-4L-PQG" id="dLe-at-xSy"/>
+                                    <outlet property="delegate" destination="zxx-4L-PQG" id="LIj-yf-9fM"/>
+                                </connections>
+                            </collectionView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="B3E-AG-VmE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="B3E-AG-VmE" firstAttribute="trailing" secondItem="fgM-t2-Z6f" secondAttribute="trailing" id="E2W-JQ-tHe"/>
+                            <constraint firstItem="B3E-AG-VmE" firstAttribute="bottom" secondItem="fgM-t2-Z6f" secondAttribute="bottom" id="NSo-CY-bJm"/>
+                            <constraint firstItem="fgM-t2-Z6f" firstAttribute="leading" secondItem="B3E-AG-VmE" secondAttribute="leading" id="qXT-BR-1R2"/>
+                            <constraint firstItem="fgM-t2-Z6f" firstAttribute="top" secondItem="iQ4-zm-sZj" secondAttribute="top" constant="64" id="sXq-fB-5Di"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="fgM-t2-Z6f" id="Leg-3U-Q1R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ngn-dW-AEP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="852.67175572519079" y="3.5211267605633805"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="alarm.waves.left.and.right" catalog="system" width="128" height="75"/>
+        <image name="arrow.down.app" catalog="system" width="128" height="114"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
 </document>

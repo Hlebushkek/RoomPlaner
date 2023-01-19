@@ -8,21 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		8F98323229793EE2003456A6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98323129793EE2003456A6 /* AppDelegate.swift */; };
-		8F98323429793EE2003456A6 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F98323329793EE2003456A6 /* art.scnassets */; };
-		8F98323629793EE2003456A6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98323529793EE2003456A6 /* ViewController.swift */; };
+		8F98323429793EE2003456A6 /* Models.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F98323329793EE2003456A6 /* Models.scnassets */; };
+		8F98323629793EE2003456A6 /* RoomReviewingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98323529793EE2003456A6 /* RoomReviewingViewController.swift */; };
 		8F98323929793EE2003456A6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F98323729793EE2003456A6 /* Main.storyboard */; };
 		8F98323B29793EE3003456A6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8F98323A29793EE3003456A6 /* Assets.xcassets */; };
 		8F98323E29793EE3003456A6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8F98323C29793EE3003456A6 /* LaunchScreen.storyboard */; };
+		8F9832452979405C003456A6 /* RoomReviewingARView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F9832442979405C003456A6 /* RoomReviewingARView.swift */; };
+		8F983247297940D0003456A6 /* RoomVirtualObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983246297940D0003456A6 /* RoomVirtualObject.swift */; };
+		8F983249297945CF003456A6 /* FocusSquare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983248297945CF003456A6 /* FocusSquare.swift */; };
+		8F98324B297945F9003456A6 /* FocusSquareSegment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98324A297945F9003456A6 /* FocusSquareSegment.swift */; };
+		8F98324D297946F2003456A6 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98324C297946F2003456A6 /* Utilities.swift */; };
+		8F98324F297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98324E297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift */; };
+		8F983251297949AF003456A6 /* RoomVirtualObjectLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983250297949AF003456A6 /* RoomVirtualObjectLoader.swift */; };
+		8F98325329795846003456A6 /* RoomObjectSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98325229795846003456A6 /* RoomObjectSelectionViewController.swift */; };
+		8F98325529795BA7003456A6 /* RoomObjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */; };
+		8F983257297969A3003456A6 /* RoomObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983256297969A3003456A6 /* RoomObjectInteraction.swift */; };
+		8F98325929796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98325829796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8F98322E29793EE2003456A6 /* RoomPlaner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RoomPlaner.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F98323129793EE2003456A6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8F98323329793EE2003456A6 /* art.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = art.scnassets; sourceTree = "<group>"; };
-		8F98323529793EE2003456A6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		8F98323329793EE2003456A6 /* Models.scnassets */ = {isa = PBXFileReference; lastKnownFileType = wrapper.scnassets; path = Models.scnassets; sourceTree = "<group>"; };
+		8F98323529793EE2003456A6 /* RoomReviewingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomReviewingViewController.swift; sourceTree = "<group>"; };
 		8F98323829793EE2003456A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8F98323A29793EE3003456A6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8F98323D29793EE3003456A6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8F9832442979405C003456A6 /* RoomReviewingARView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomReviewingARView.swift; sourceTree = "<group>"; };
+		8F983246297940D0003456A6 /* RoomVirtualObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomVirtualObject.swift; sourceTree = "<group>"; };
+		8F983248297945CF003456A6 /* FocusSquare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquare.swift; sourceTree = "<group>"; };
+		8F98324A297945F9003456A6 /* FocusSquareSegment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusSquareSegment.swift; sourceTree = "<group>"; };
+		8F98324C297946F2003456A6 /* Utilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		8F98324E297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomReviewingViewController+ARSCNViewDelegate.swift"; sourceTree = "<group>"; };
+		8F983250297949AF003456A6 /* RoomVirtualObjectLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomVirtualObjectLoader.swift; sourceTree = "<group>"; };
+		8F98325229795846003456A6 /* RoomObjectSelectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectSelectionViewController.swift; sourceTree = "<group>"; };
+		8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectCollectionViewCell.swift; sourceTree = "<group>"; };
+		8F983256297969A3003456A6 /* RoomObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectInteraction.swift; sourceTree = "<group>"; };
+		8F98325829796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,11 +78,22 @@
 			isa = PBXGroup;
 			children = (
 				8F98323129793EE2003456A6 /* AppDelegate.swift */,
-				8F98323329793EE2003456A6 /* art.scnassets */,
-				8F98323529793EE2003456A6 /* ViewController.swift */,
+				8F98323529793EE2003456A6 /* RoomReviewingViewController.swift */,
+				8F98325229795846003456A6 /* RoomObjectSelectionViewController.swift */,
+				8F98324E297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift */,
+				8F98325829796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift */,
+				8F9832442979405C003456A6 /* RoomReviewingARView.swift */,
+				8F983250297949AF003456A6 /* RoomVirtualObjectLoader.swift */,
+				8F983246297940D0003456A6 /* RoomVirtualObject.swift */,
+				8F983248297945CF003456A6 /* FocusSquare.swift */,
+				8F98324A297945F9003456A6 /* FocusSquareSegment.swift */,
+				8F98324C297946F2003456A6 /* Utilities.swift */,
 				8F98323729793EE2003456A6 /* Main.storyboard */,
-				8F98323A29793EE3003456A6 /* Assets.xcassets */,
 				8F98323C29793EE3003456A6 /* LaunchScreen.storyboard */,
+				8F98323329793EE2003456A6 /* Models.scnassets */,
+				8F98323A29793EE3003456A6 /* Assets.xcassets */,
+				8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */,
+				8F983256297969A3003456A6 /* RoomObjectInteraction.swift */,
 			);
 			path = RoomPlaner;
 			sourceTree = "<group>";
@@ -123,7 +156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F98323429793EE2003456A6 /* art.scnassets in Resources */,
+				8F98323429793EE2003456A6 /* Models.scnassets in Resources */,
 				8F98323E29793EE3003456A6 /* LaunchScreen.storyboard in Resources */,
 				8F98323B29793EE3003456A6 /* Assets.xcassets in Resources */,
 				8F98323929793EE2003456A6 /* Main.storyboard in Resources */,
@@ -137,8 +170,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F98323629793EE2003456A6 /* ViewController.swift in Sources */,
+				8F98323629793EE2003456A6 /* RoomReviewingViewController.swift in Sources */,
+				8F98325329795846003456A6 /* RoomObjectSelectionViewController.swift in Sources */,
+				8F983249297945CF003456A6 /* FocusSquare.swift in Sources */,
+				8F983251297949AF003456A6 /* RoomVirtualObjectLoader.swift in Sources */,
+				8F98324F297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift in Sources */,
+				8F98324D297946F2003456A6 /* Utilities.swift in Sources */,
+				8F98325929796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift in Sources */,
 				8F98323229793EE2003456A6 /* AppDelegate.swift in Sources */,
+				8F9832452979405C003456A6 /* RoomReviewingARView.swift in Sources */,
+				8F98324B297945F9003456A6 /* FocusSquareSegment.swift in Sources */,
+				8F983247297940D0003456A6 /* RoomVirtualObject.swift in Sources */,
+				8F983257297969A3003456A6 /* RoomObjectInteraction.swift in Sources */,
+				8F98325529795BA7003456A6 /* RoomObjectCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,16 +329,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38M6285G4U;
+				DEVELOPMENT_TEAM = 6CZJF7TKN6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -315,16 +360,17 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 38M6285G4U;
+				DEVELOPMENT_TEAM = 6CZJF7TKN6;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_NSCameraUsageDescription = "";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = arkit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
