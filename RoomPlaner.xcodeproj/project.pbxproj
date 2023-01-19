@@ -24,6 +24,7 @@
 		8F98325529795BA7003456A6 /* RoomObjectCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */; };
 		8F983257297969A3003456A6 /* RoomObjectInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983256297969A3003456A6 /* RoomObjectInteraction.swift */; };
 		8F98325929796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F98325829796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift */; };
+		8F983264297981BE003456A6 /* GradientView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F983263297981BE003456A6 /* GradientView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectCollectionViewCell.swift; sourceTree = "<group>"; };
 		8F983256297969A3003456A6 /* RoomObjectInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomObjectInteraction.swift; sourceTree = "<group>"; };
 		8F98325829796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift"; sourceTree = "<group>"; };
+		8F983263297981BE003456A6 /* GradientView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +96,7 @@
 				8F98323A29793EE3003456A6 /* Assets.xcassets */,
 				8F98325429795BA7003456A6 /* RoomObjectCollectionViewCell.swift */,
 				8F983256297969A3003456A6 /* RoomObjectInteraction.swift */,
+				8F983263297981BE003456A6 /* GradientView.swift */,
 			);
 			path = RoomPlaner;
 			sourceTree = "<group>";
@@ -174,6 +177,7 @@
 				8F98325329795846003456A6 /* RoomObjectSelectionViewController.swift in Sources */,
 				8F983249297945CF003456A6 /* FocusSquare.swift in Sources */,
 				8F983251297949AF003456A6 /* RoomVirtualObjectLoader.swift in Sources */,
+				8F983264297981BE003456A6 /* GradientView.swift in Sources */,
 				8F98324F297948BE003456A6 /* RoomReviewingViewController+ARSCNViewDelegate.swift in Sources */,
 				8F98324D297946F2003456A6 /* Utilities.swift in Sources */,
 				8F98325929796ACA003456A6 /* RoomReviewingViewController + RoomObjectSelectionViewControllerDelegate.swift in Sources */,

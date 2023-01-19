@@ -14,6 +14,7 @@ class RoomReviewingViewController: UIViewController {
     @IBOutlet var sceneView: RoomReviewingARView!
     
     @IBOutlet weak var openObjectsListButton: UIButton!
+    @IBOutlet var placedObjectsListButton: UIButton!
     
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     
@@ -38,9 +39,6 @@ class RoomReviewingViewController: UIViewController {
         
         sceneView.delegate = self
         sceneView.showsStatistics = true
-        
-        let scene = SCNScene(named: "Models.scnassets/ship.scn")!
-        sceneView.scene = scene
         
         sceneView.scene.rootNode.addChildNode(focusSquare)
     }

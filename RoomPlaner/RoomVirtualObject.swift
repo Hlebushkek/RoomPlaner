@@ -38,6 +38,15 @@ class RoomVirtualObject: SCNReferenceNode {
         }
     }
     
+    var objectScale: SCNVector3 {
+        get {
+            return childNodes.first!.scale
+        }
+        set (newValue) {
+            childNodes.first!.scale = newValue
+        }
+    }
+    
     /// The object's corresponding ARAnchor.
     var anchor: ARAnchor?
 
@@ -74,7 +83,7 @@ extension RoomVirtualObject {
         return fileEnumerator.compactMap { element in
             let url = element as! URL
 
-            guard url.pathExtension == "scn" && !url.path.contains("lighting") else { return nil }
+            guard (url.pathExtension == "scn" || url.pathExtension == "usdz") && !url.path.contains("lighting") else { return nil }
 
             return RoomVirtualObject(url: url)
         }

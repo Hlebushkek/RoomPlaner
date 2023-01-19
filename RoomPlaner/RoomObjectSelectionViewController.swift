@@ -14,7 +14,24 @@ protocol RoomObjectSelectionViewControllerDelegate: AnyObject {
 
 class RoomObjectSelectionViewController: UIViewController {
     
+    enum ModelImportOptions {
+        case importFile
+        case capturePhoto
+        case captureVideo
+        
+        var name: String {
+            switch self {
+                case .importFile:   return "Import file"
+                case .capturePhoto: return "Capture Photo"
+                case .captureVideo: return "Capture Video"
+            }
+        }
+    }
+    
     @IBOutlet var collectionView: UICollectionView!
+    var gradientView: GradientView? {
+        return self.view as? GradientView
+    }
     
     var virtualObjects = [RoomVirtualObject]()
     
@@ -28,6 +45,8 @@ class RoomObjectSelectionViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        gradientView?.colors = [#colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1), #colorLiteral(red: 0.1764705926, green: 0.4980392158, blue: 0.7568627596, alpha: 1)]
+        gradientView?.gradientAlpha = 0.6
     }
     
     func updateObjectAvailability() {
@@ -79,7 +98,7 @@ extension RoomObjectSelectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return virtualObjects.count
+        return virtualObjects.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -87,12 +106,24 @@ extension RoomObjectSelectionViewController: UICollectionViewDelegate, UICollect
             fatalError("Expected `\(RoomObjectCollectionViewCell.self)` type for reuseIdentifier \(RoomObjectCollectionViewCell.reuseIdentifier). Check the configuration in Main.storyboard.")
         }
         
-        cell.setup(with: nil, name: virtualObjects[indexPath.row].modelName)
+        if (indexPath.row == 0) {
+            cell.setup(with: nil, name: "Scan new Object")
+        } else {
+            cell.setup(with: nil, name: virtualObjects[indexPath.row - 1].modelName)
+        }
 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let box = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0.1)
+        let material = box.firstMaterial!
+        material.diffuse.contents = UIColor.blue
+        material.isDoubleSided = true
+        material.ambient.contents = UIColor.black
+        material.lightingModel = .constant
+        material.emission.contents = UIColor.red
+        
         let object = virtualObjects[indexPath.row]
         delegate?.roomObjectSelectionViewController(self, didSelectObject: object)
 

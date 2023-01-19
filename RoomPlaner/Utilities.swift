@@ -56,3 +56,11 @@ extension CGPoint {
         return sqrt(x * x + y * y)
     }
 }
+
+extension SCNVector3 {
+    mutating func scaleBy(_ value: Float) {
+        self.x *= value
+        self.y *= value
+        self.z *= value
+    }
+}

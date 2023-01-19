@@ -32,29 +32,34 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         self.viewController = viewController
         super.init()
         
-        createPanGestureRecognizer(sceneView)
+        //Moving
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
+        tapGesture.numberOfTapsRequired = 2
+        sceneView.addGestureRecognizer(tapGesture)
         
+        //Rotation
         let rotationGesture = UIRotationGestureRecognizer(target: self, action: #selector(didRotate(_:)))
         rotationGesture.delegate = self
         sceneView.addGestureRecognizer(rotationGesture)
-
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(didTap(_:)))
-        sceneView.addGestureRecognizer(tapGesture)
+        
+        //Scaling
+        let scaleGesture = UIPinchGestureRecognizer(target: self, action: #selector(didPinch(_:)))
+        scaleGesture.delegate = self
+        sceneView.addGestureRecognizer(scaleGesture)
     }
     
-    func createPanGestureRecognizer(_ sceneView: RoomReviewingARView) {
-//        let panGesture = ThresholdPanGesture(target: self, action: #selector(didPan(_:)))
+//    func createPanGestureRecognizer(_ sceneView: RoomReviewingARView) {
+//        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(didPan(_:)))
 //        panGesture.delegate = self
 //        sceneView.addGestureRecognizer(panGesture)
-    }
+//    }
     
     // MARK: - Gesture Actions
     
 //    @objc
-//    func didPan(_ gesture: ThresholdPanGesture) {
+//    func didPan(_ gesture: UIGesture) {
 //        switch gesture.state {
 //        case .began:
-//            // Check for an object at the touch location.
 //            if let object = objectInteracting(with: gesture, in: sceneView) {
 //                trackedObject = object
 //            }
@@ -102,7 +107,7 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
     func didRotate(_ gesture: UIRotationGestureRecognizer) {
         guard gesture.state == .changed else { return }
         
-        trackedObject?.objectRotation -= Float(gesture.rotation)
+        selectedObject?.objectRotation -= Float(gesture.rotation)
         
         gesture.rotation = 0
     }
@@ -113,19 +118,25 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         let touchLocation = gesture.location(in: sceneView)
         
         if let tappedObject = sceneView.virtualObject(at: touchLocation) {
-            
-            // If an object exists at the tap location, select it.
+            print("!!!Select new")
             selectedObject = tappedObject
         } else if let object = selectedObject {
-            
-            // Otherwise, move the selected object to its new position at the tap location.
+            print("!!!Move selected")
             setDown(object, basedOn: touchLocation)
         }
     }
     
+    @objc
+    func didPinch(_ gesture: UIPinchGestureRecognizer) {
+        let touchScale = Float(gesture.scale)
+        if let selectedObject {
+            selectedObject.objectScale.scaleBy(powf(touchScale, 1 / 32))
+        }
+    }
+    
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        // Allow objects to be translated and rotated at the same time.
-        return true
+        // Allow objects to be translated and rotated at the same time if true.
+        return false
     }
 
     /** A helper method to return the first object that is found under the provided `gesture`s touch locations.
