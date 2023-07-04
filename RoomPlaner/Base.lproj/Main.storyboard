@@ -46,6 +46,14 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="MTo-5Q-6Ax">
                                 <rect key="frame" x="87.666666666666671" y="82.666666666666671" width="20" height="20"/>
                             </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kc4-Tj-1V4">
+                                <rect key="frame" x="138" y="75" width="148" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" image="scanner" catalog="system" title="Scan Object"/>
+                                <connections>
+                                    <action selector="scanObjectButtonWasPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="P7b-yv-BKm"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fQZ-KI-GVf"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -56,13 +64,16 @@
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" id="GsS-dJ-CKf"/>
                             <constraint firstItem="MTo-5Q-6Ax" firstAttribute="centerY" secondItem="3Qg-IM-apQ" secondAttribute="centerY" id="Gzm-RV-aAt"/>
                             <constraint firstItem="fQZ-KI-GVf" firstAttribute="trailing" secondItem="x0r-AO-uZn" secondAttribute="trailing" constant="16" id="LAL-n1-LdS"/>
+                            <constraint firstItem="kc4-Tj-1V4" firstAttribute="centerY" secondItem="3Qg-IM-apQ" secondAttribute="centerY" id="Mew-Ij-agi"/>
                             <constraint firstItem="MTo-5Q-6Ax" firstAttribute="centerX" secondItem="3Qg-IM-apQ" secondAttribute="centerX" id="Rcz-Ud-nhS"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="bottom" secondItem="U0K-SW-4ec" secondAttribute="bottom" id="VpT-BR-CcM"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="trailing" secondItem="fQZ-KI-GVf" secondAttribute="trailing" id="XyZ-9z-H8e"/>
                             <constraint firstItem="cu1-bU-uUg" firstAttribute="leading" secondItem="fQZ-KI-GVf" secondAttribute="leading" constant="16" id="j8S-KM-rkP"/>
+                            <constraint firstItem="x0r-AO-uZn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kc4-Tj-1V4" secondAttribute="trailing" constant="8" symbolic="YES" id="rAr-2Q-kZP"/>
                             <constraint firstItem="BrB-h1-WRS" firstAttribute="top" secondItem="U0K-SW-4ec" secondAttribute="top" id="rJc-2c-zQA"/>
                             <constraint firstItem="cu1-bU-uUg" firstAttribute="top" secondItem="fQZ-KI-GVf" secondAttribute="top" constant="16" id="tEd-2t-5kG"/>
                             <constraint firstItem="3Qg-IM-apQ" firstAttribute="leading" secondItem="cu1-bU-uUg" secondAttribute="trailing" constant="8" id="tYs-wu-ObK"/>
+                            <constraint firstItem="kc4-Tj-1V4" firstAttribute="leading" secondItem="3Qg-IM-apQ" secondAttribute="trailing" constant="16" id="vNh-4w-62E"/>
                         </constraints>
                     </view>
                     <connections>
@@ -70,11 +81,63 @@
                         <outlet property="placedObjectsListButton" destination="3Qg-IM-apQ" id="HSP-XF-eXc"/>
                         <outlet property="sceneView" destination="BrB-h1-WRS" id="zMg-fq-51s"/>
                         <outlet property="spinner" destination="MTo-5Q-6Ax" id="fgC-da-cht"/>
+                        <segue destination="qfA-sP-1gh" kind="presentation" identifier="scanSegue" modalPresentationStyle="fullScreen" id="jLi-lP-pRK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="48" y="4"/>
+        </scene>
+        <!--Room Object Scanning View Controller-->
+        <scene sceneID="PhT-YC-VsU">
+            <objects>
+                <viewController id="qfA-sP-1gh" customClass="RoomObjectScanningViewController" customModule="RoomPlaner" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="m2Z-UJ-ZEh">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mtkView contentMode="scaleToFill" colorPixelFormat="BGRA8Unorm" depthStencilPixelFormat="Depth32Float" translatesAutoresizingMaskIntoConstraints="NO" id="4lP-Ze-ZVO">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </mtkView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-vU-qSV">
+                                <rect key="frame" x="15.999999999999996" y="67" width="61.666666666666657" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Back"/>
+                                <connections>
+                                    <action selector="backButtonWasPressed:" destination="qfA-sP-1gh" eventType="touchUpInside" id="WCO-uP-OuE"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eqw-wB-QBz">
+                                <rect key="frame" x="316" y="67" width="61" height="35"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Save"/>
+                                <connections>
+                                    <action selector="saveButtonWasPressed:" destination="qfA-sP-1gh" eventType="touchUpInside" id="waC-SW-hku"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xKY-Gv-9kU"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vYa-vU-qSV" firstAttribute="top" secondItem="xKY-Gv-9kU" secondAttribute="top" constant="8" id="EH7-Jg-uMH"/>
+                            <constraint firstItem="vYa-vU-qSV" firstAttribute="leading" secondItem="xKY-Gv-9kU" secondAttribute="leading" constant="16" id="Lx0-PS-4e8"/>
+                            <constraint firstItem="4lP-Ze-ZVO" firstAttribute="trailing" secondItem="xKY-Gv-9kU" secondAttribute="trailing" id="Ypq-1s-aiO"/>
+                            <constraint firstItem="Eqw-wB-QBz" firstAttribute="centerY" secondItem="vYa-vU-qSV" secondAttribute="centerY" id="Z6u-YD-I9Y"/>
+                            <constraint firstItem="4lP-Ze-ZVO" firstAttribute="top" secondItem="m2Z-UJ-ZEh" secondAttribute="top" id="Z8G-v3-CIo"/>
+                            <constraint firstAttribute="bottom" secondItem="4lP-Ze-ZVO" secondAttribute="bottom" id="cRC-I6-sLe"/>
+                            <constraint firstItem="xKY-Gv-9kU" firstAttribute="trailing" secondItem="Eqw-wB-QBz" secondAttribute="trailing" constant="16" id="gL3-Ty-7fS"/>
+                            <constraint firstItem="4lP-Ze-ZVO" firstAttribute="leading" secondItem="xKY-Gv-9kU" secondAttribute="leading" id="s5l-h3-pUk"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backButton" destination="vYa-vU-qSV" id="tm7-JT-e3S"/>
+                        <outlet property="mtkView" destination="4lP-Ze-ZVO" id="d1l-ZA-axb"/>
+                        <outlet property="saveButton" destination="Eqw-wB-QBz" id="rHv-K5-NIa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q96-3s-fBH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="46.564885496183201" y="707.04225352112678"/>
         </scene>
         <!--Room Object Selection View Controller-->
         <scene sceneID="92e-m1-DMM">
@@ -184,6 +247,7 @@
     <resources>
         <image name="alarm.waves.left.and.right" catalog="system" width="128" height="75"/>
         <image name="plus.app" catalog="system" width="128" height="114"/>
+        <image name="scanner" catalog="system" width="128" height="93"/>
         <image name="square.and.arrow.down" catalog="system" width="121" height="128"/>
         <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
         <systemColor name="systemBackgroundColor">

@@ -5,9 +5,10 @@
 //  Created by Hlib Sobolevskyi on 19.01.2023.
 //
 
-import UIKit
 import SceneKit
+import SceneKit.ModelIO
 import ARKit
+import MetalKit
 
 class RoomReviewingViewController: UIViewController {
     
@@ -54,6 +55,14 @@ class RoomReviewingViewController: UIViewController {
         super.viewWillDisappear(animated)
         
         sceneView.session.pause()
+    }
+    
+    @IBAction func scanObjectButtonWasPressed(_ sender: Any) {
+        if let name = virtualObjectInteraction.selectedObject?.modelName, name.contains("SelecBox") {
+            performSegue(withIdentifier: "scanSegue", sender: self)
+        } else {
+            print("!!!BOX NOT SELECTED")
+        }
     }
     
     func placeRoomObject(_ virtualObject: RoomVirtualObject) {
@@ -103,6 +112,15 @@ class RoomReviewingViewController: UIViewController {
             objectsViewController.virtualObjects = RoomVirtualObject.availableObjects
             objectsViewController.delegate = self
             objectsViewController.sceneView = sceneView
+        } else if let scanningViewController = segue.destination as? RoomObjectScanningViewController {
+            guard let box = virtualObjectInteraction.selectedObject else { return }
+            let position = box.position
+            let scale = box.objectScale
+            let min = SCNVector3(position.x - scale.x, position.y - scale.y, position.z - scale.z)
+            let max = SCNVector3(position.x + scale.x, position.y + scale.y, position.z + scale.z)
+            
+            scanningViewController.bBox = BoundingBox((min: min, max: max))
+            scanningViewController.bBoxOrigin = position
         }
     }
     

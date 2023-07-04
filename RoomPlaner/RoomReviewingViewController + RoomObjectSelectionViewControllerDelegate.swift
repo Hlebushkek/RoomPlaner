@@ -79,29 +79,19 @@ extension RoomReviewingViewController: RoomObjectSelectionViewControllerDelegate
     }
     
     func roomObjectSelectionViewController(_ selectionViewController: RoomObjectSelectionViewController, didSelectObject object: RoomVirtualObject) {
-        
-        if let object = object as? RoomVirtualObject {
-            virtualObjectLoader.loadVirtualObject(object, loadedHandler: { [unowned self] loadedObject in
-                do {
-                    let scene = try SCNScene(url: object.referenceURL, options: nil)
-                    self.sceneView.prepare([scene], completionHandler: { _ in
-                        DispatchQueue.main.async {
-                            self.hideObjectLoadingUI()
-                            self.placeVirtualObject(loadedObject)
-                        }
-                    })
-                } catch {
-                    fatalError("Failed to load SCNScene from object.referenceURL")
-                }
-            })
-        } else {
-//            self.sceneView.prepare([object], completionHandler: { _ in
-//                DispatchQueue.main.async {
-//                    self.hideObjectLoadingUI()
-//                    self.placeVirtualObject(loadedObject)
-//                }
-//            })
-        }
+        virtualObjectLoader.loadVirtualObject(object, loadedHandler: { [unowned self] loadedObject in
+            do {
+                let scene = try SCNScene(url: object.referenceURL, options: nil)
+                self.sceneView.prepare([scene], completionHandler: { _ in
+                    DispatchQueue.main.async {
+                        self.hideObjectLoadingUI()
+                        self.placeVirtualObject(loadedObject)
+                    }
+                })
+            } catch {
+                fatalError("Failed to load SCNScene from object.referenceURL")
+            }
+        })
     }
     
     func displayObjectLoadingUI() {

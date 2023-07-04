@@ -83,7 +83,7 @@ extension RoomVirtualObject {
         return fileEnumerator.compactMap { element in
             let url = element as! URL
 
-            guard (url.pathExtension == "scn" || url.pathExtension == "usdz") && !url.path.contains("lighting") else { return nil }
+            guard (url.pathExtension == "scn" || url.pathExtension == "usdz" || url.pathExtension == "usdc" || url.pathExtension == "obj") && !url.path.contains("lighting") else { return nil }
 
             return RoomVirtualObject(url: url)
         }

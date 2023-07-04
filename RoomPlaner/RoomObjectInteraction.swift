@@ -118,10 +118,8 @@ class VirtualObjectInteraction: NSObject, UIGestureRecognizerDelegate {
         let touchLocation = gesture.location(in: sceneView)
         
         if let tappedObject = sceneView.virtualObject(at: touchLocation) {
-            print("!!!Select new")
             selectedObject = tappedObject
         } else if let object = selectedObject {
-            print("!!!Move selected")
             setDown(object, basedOn: touchLocation)
         }
     }

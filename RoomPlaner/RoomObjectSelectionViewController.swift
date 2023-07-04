@@ -98,7 +98,7 @@ extension RoomObjectSelectionViewController: UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return virtualObjects.count + 1
+        return virtualObjects.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -106,23 +106,12 @@ extension RoomObjectSelectionViewController: UICollectionViewDelegate, UICollect
             fatalError("Expected `\(RoomObjectCollectionViewCell.self)` type for reuseIdentifier \(RoomObjectCollectionViewCell.reuseIdentifier). Check the configuration in Main.storyboard.")
         }
         
-        if (indexPath.row == 0) {
-            cell.setup(with: nil, name: "Scan new Object")
-        } else {
-            cell.setup(with: nil, name: virtualObjects[indexPath.row - 1].modelName)
-        }
+        cell.setup(with: nil, name: virtualObjects[indexPath.row].modelName)
 
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let box = SCNBox(width: 0.5, height: 0.5, length: 0.5, chamferRadius: 0.1)
-        let material = box.firstMaterial!
-        material.diffuse.contents = UIColor.blue
-        material.isDoubleSided = true
-        material.ambient.contents = UIColor.black
-        material.lightingModel = .constant
-        material.emission.contents = UIColor.red
         
         let object = virtualObjects[indexPath.row]
         delegate?.roomObjectSelectionViewController(self, didSelectObject: object)
@@ -130,4 +119,16 @@ extension RoomObjectSelectionViewController: UICollectionViewDelegate, UICollect
         dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension RoomObjectSelectionViewController: SCNSceneExportDelegate {
+    func write(_ image: UIImage, withSceneDocumentURL documentURL: URL, originalImageURL: URL?) -> URL? {
+        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+        let url = documentsPath.appendingPathComponent("Box_texture.png")
+        print("PATH: \(url)")
+        
+        try? image.pngData()?.write(to: url)
+        
+        return url
+    }
 }
